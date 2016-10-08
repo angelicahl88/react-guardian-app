@@ -14,8 +14,6 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(actionCreator, dispatch);
 }
 
-
-
 const App = connect(mapStateToProps, mapDispatchToProps)(Main);
 
 export default App;

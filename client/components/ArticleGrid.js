@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Article from './Article';
+
 class ArticleGrid extends Component {
 
   // constructor(props) {
@@ -16,11 +18,19 @@ class ArticleGrid extends Component {
   }
 
   render() {
-    return (
-      <div>
-        {this.props.articles.data.map((article, index) => <p key={index} index={index}>{article.fields.headline}</p>)}
-      </div>
-    );
+    if (this.props.articles.data) {
+      return (
+          <div className="article-grid">
+            {this.props.articles.data.map((article, index) => <Article key={index} index={index} article={article} {...this.props} />)}
+          </div>
+      );
+    } else {
+      return (
+        <div>
+          <h4 className="loader">Loading...</h4>
+        </div>
+      )
+    }
   }
 }
 
