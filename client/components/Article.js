@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
+import ReadIcon from './ReadIcon';
+
 class Article extends Component {
 
   countMinToRead() {
@@ -23,7 +25,10 @@ class Article extends Component {
           <Link to={`/article/${index}`}>
             <img src={article.fields.thumbnail} alt={article.fields.headline} />
             <div className="hover-card">
-              <h4 className="min-to-read bold">{this.countMinToRead()} min read</h4>
+              <div className="read-wrapper">
+                <ReadIcon />
+                <h5 className="min-to-read bold">{this.countMinToRead()} min</h5>
+              </div>
             </div>
           </Link>
         </div>
